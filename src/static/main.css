@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url(./fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.nav {
+  background-color: #2ECDFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+}
+
+.nav .placeholder {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.nav .title {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  text-align: center;
+  margin-top: 18px;
+  font-size: 1.5em;
+}
+
+.nav .name-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 15px;
+}
+
+.nav .name-container .name {
+  background-color: #C4C4C4;
+  padding: 8px;
+  padding-right: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 50%;
+}
+
+.dashboard .chapters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.dashboard .chapters .chapter-container {
+  width: 50%;
+  text-align: center;
+  margin-top: 8vh;
+}
+
+.dashboard .chapters .chapter-container .chapter {
+  margin: 0 8vw;
+  padding: 3vh 0;
+  -webkit-box-shadow: 0 2px 3px 2px #ccc;
+  box-shadow: 0 2px 3px 2px #ccc;
+  border-radius: 15px;
+}
+
+.dashboard .chapters .chapter-container .chapter .image {
+  height: 50px;
+}
+
+.dashboard .chapters .chapter-container .chapter-inactive {
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 1px 6px 1px #ccc !important;
+  box-shadow: 0 1px 6px 1px #ccc !important;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.chapter .chapter-inner {
+  margin: 8vh 8vw;
+}
+
+.chapter .chapter-inner .question-column .answers {
+  margin-top: 8vh;
+}
+
+.chapter .chapter-inner .question-column .answers .answer {
+  margin-top: 1.5vh;
+  padding: 2vh 2vw;
+  -webkit-box-shadow: 0 2px 4px 1px #ccc;
+  box-shadow: 0 2px 4px 1px #ccc;
+}
+
+.chapter .chapter-inner .question-column .answers .answer .letter {
+  color: #299692;
+}
+
+.chapter .chapter-inner .question-column .answers .highlight {
+  background-color: #C4C4C4;
+}
+
+.chapter .chapter-inner .question-column .answers .correct {
+  background-color: #0eee0e;
+}
+
+.chapter .chapter-inner .question-column .answers .incorrect {
+  background-color: #fa2d2d !important;
+}
+
+.chapter .chapter-inner .question-cards .answers {
+  margin-top: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.chapter .chapter-inner .question-cards .answers .answer {
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+  max-width: 100%;
+}
+
+.chapter .chapter-inner .question-cards .answers .correct {
+  background-color: green;
+}
+
+.chapter .chapter-inner .congrats .image {
+  max-width: 100%;
+  max-height: 40vh;
+  text-align: center;
+}
+
+.chapter .chapter-inner .congrats .text {
+  margin-top: 8vh;
+}
+
+.chapter .button-next-container {
+  margin: 8vh 16vw;
+}
+
+.chapter .button-next-container .button-next {
+  padding: 1.5vh 1vw;
+  background-color: #C4C4C4;
+  text-align: center;
+  border-radius: 25px;
+}
+/*# sourceMappingURL=main.css.map */

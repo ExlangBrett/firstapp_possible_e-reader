@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./static/main.css";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import ChapterContextProvider from "./contexts/chapterContext";
+import { ChapterContext } from "./contexts/chapterContext";
+
+import Home from "./components/home";
+import Dashboard from "./components/dashboard";
+import Chapter from "./components/chapter";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChapterContextProvider>
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/chapter/:chapterId">
+              <Chapter />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </ChapterContextProvider>
   );
 }
 

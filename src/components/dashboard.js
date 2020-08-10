@@ -2,15 +2,19 @@ import React from "react";
 import chapterImage from "../static/imgs/img.svg";
 import lock from "../static/imgs/lock.svg";
 
+import { useHistory } from "react-router-dom";
+
 import Navbar from "./navbar";
 
 const Dashboard = () => {
+  const history = useHistory();
+
   const chapters = [
-    { name: "Chapter 1", image: chapterImage },
-    { name: "Chapter 2", image: lock },
-    { name: "Chapter 3", image: lock },
-    { name: "Chapter 4", image: lock },
-    { name: "Chapter 5", image: lock },
+    { id: "1", name: "Chapter 1", image: chapterImage },
+    { id: "2", name: "Chapter 2", image: lock },
+    { id: "3", name: "Chapter 3", image: lock },
+    { id: "4", name: "Chapter 4", image: lock },
+    { id: "5", name: "Chapter 5", image: lock },
   ];
 
   return (
@@ -22,6 +26,11 @@ const Dashboard = () => {
             <div
               className={
                 item.image == lock ? "chapter chapter-inactive" : "chapter"
+              }
+              onClick={
+                item.image == lock
+                  ? null
+                  : () => history.push("/chapter/" + item.id)
               }
             >
               <div>

@@ -1,7 +1,14 @@
 import React from "react";
 import "./static/main.css";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 import ChapterContextProvider from "./contexts/chapterContext";
 import { ChapterContext } from "./contexts/chapterContext";
@@ -10,10 +17,12 @@ import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Chapter from "./components/chapter";
 
+const history = createBrowserHistory();
+
 function App() {
   return (
     <ChapterContextProvider>
-      <Router>
+      <Router history={history}>
         <div>
           <Switch>
             <Route exact path="/">
@@ -23,7 +32,7 @@ function App() {
               <Dashboard />
             </Route>
             <Route path="/chapter/:chapterId">
-              <Chapter />
+              <Chapter history={history} />
             </Route>
           </Switch>
         </div>

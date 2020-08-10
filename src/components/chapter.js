@@ -8,13 +8,14 @@ import QuestionColumn from "./questionColumn";
 import QuestionCards from "./questionCards";
 import Congrats from "./congrats";
 
-const Chapter = () => {
+const Chapter = ({ history }) => {
   const {
     initChapter,
     chapterName,
     currentQuestion,
     next,
     showCongrats,
+    action,
   } = useContext(ChapterContext);
 
   let { chapterId } = useParams();
@@ -34,8 +35,15 @@ const Chapter = () => {
         ) : null}
       </div>
       <div className="button-next-container">
-        <div className="button-next" onClick={next}>
-          Next
+        <div
+          className="button-next"
+          onClick={
+            action == "Next chapter"
+              ? () => history.push("/chapter/" + (parseInt(chapterId) + 1))
+              : next
+          }
+        >
+          {action}
         </div>
       </div>
     </div>

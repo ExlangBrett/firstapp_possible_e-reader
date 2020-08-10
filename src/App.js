@@ -17,7 +17,7 @@ import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Chapter from "./components/chapter";
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({ forceRefresh: true });
 
 function App() {
   return (

@@ -21,8 +21,9 @@ const Chapter = ({ history }) => {
   let { chapterId } = useParams();
 
   useEffect(() => {
+    console.log("here");
     initChapter(chapterId);
-  }, []);
+  }, [chapterId]);
 
   return currentQuestion ? (
     <div className="chapter">

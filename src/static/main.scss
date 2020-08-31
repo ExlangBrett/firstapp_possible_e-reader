@@ -3,170 +3,117 @@
     src: url(./fonts/Roboto/Roboto-Regular.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'Segoe UI';
+    src: url(./fonts/segoe-ui/SegoeUI.ttf) format('truetype');
+}
+
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI';
 }
 
-.nav {
-    background-color: #2ECDFF;
+.home {
+    background: 
+    linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 
+    100%), radial-gradient(415.12% 164.38% at 49.86% 22.34%, 
+    #E7E3EC 0%, #D1D1D1 55.73%, #C8C8C8 100%);
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    height: 60px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.3);
-    box-shadow: 0 8px 6px -6px rgba(0,0,0,0.3);
+    flex-direction: column;
 
-    .exit {
-        flex: 1;
-
-        .exit-inner {
-            margin-top: 20px;
-            
-        }
-        text-align:center;
-    }
-
-    .title {
-        flex: 5;
-        text-align: center;
-        margin-top: 18px;
-        font-size: 1.5em;
-    }
-
-    .name-container {
-        flex: 1;
-        margin-top: 15px;
-
-        .name {
-            background-color: #C4C4C4;
-            padding: 8px;
-            padding-right: 10px;
-            width: max-content;
-            border-radius: 50%;
-        }
-    }
-}
-
-.dashboard {
-
-    .chapters {
+    .header {
+        flex: 3;
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-
-        .chapter-container {
-            width: 50%;
-            text-align: center;
-            margin-top: 8vh;
-
-            
-            .chapter {
-                margin: 0 8vw;
-                padding: 3vh 0;
-                -moz-box-shadow:    0 2px 3px 2px #ccc;
-                -webkit-box-shadow: 0 2px 3px 2px #ccc;
-                box-shadow:         0 2px 3px 2px #ccc;
-                border-radius: 15px;
-
-
-                .image {
-                    height: 50px;
-                }
-            }
-
-            .chapter-inactive {
-                background-color: rgba(0,0,0,0.05);
-                -moz-box-shadow:    0 1px 6px 1px #ccc !important;
-                -webkit-box-shadow: 0 1px 6px 1px #ccc !important;
-                box-shadow:         0 1px 6px 1px #ccc !important;
-                color: rgba(0,0,0,0.2);
-            }
-        }
     }
-}
 
-.chapter {
-    .chapter-inner {
-        margin: 8vh 8vw;
+    .content {
+        flex: 7;
+        display: flex;
+        flex-direction: column;
 
-        .question-column{
-            .question {
+        .signin {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
 
+            .background {
+                background-color: white;
+                margin: 0 3vw;
+                border-radius: 55px 12px;
             }
+
+            .main {
+               flex: 0.8;
+               display: flex;
+               flex-direction: column;
     
-            .answers {
-                margin-top: 8vh;
+                .main-text {
+                    flex: 0.4;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 300;
+                    font-size: 2.5rem;
+                }
     
-                .answer {
-                    margin-top: 1.5vh;
-                    padding: 2vh 2vw;
-                    -moz-box-shadow:    0 2px 4px 1px #ccc;
-                    -webkit-box-shadow: 0 2px 4px 1px #ccc;
-                    box-shadow:         0 2px 4px 1px #ccc;
+                .sign-in-options {
+                    flex: 0.6;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-end;
     
-                    .letter {
-                        color: #299692;
+                    div {
+                        background-color: white;
+                        width: 70%;
+                        padding: 1.5vh 3vw 1.5vh 3vw;
+                        margin-top: 2vh;
+    
+                        a {
+                            padding-left: 1.5vw;
+                        }
                     }
-    
-                    .text {
-                        
-                    }
-                }
-
-                .highlight {
-                    background-color: #C4C4C4;
-                }
-
-                .correct {
-                    background-color: rgb(14, 238, 14);
-                }
-
-                .incorrect {
-                    background-color: rgb(250, 45, 45) !important;
                 }
             }
-        }
-        
-        .question-cards{
-            .answers {
-                margin-top: 8vh;
+
+            .bottom-text {
+                flex: 0.2;
                 display: flex;
-                flex-wrap: wrap;
-
-                .answer {
-                    flex: 50%;
-                    max-width: 100%;
-                }
-
-                .correct {
-                    background-color: green;
-                }
-            }
-        }
-
-        .congrats {
-            .image {
-                max-width: 100%;
-                max-height: 40vh;
-                text-align: center;
-            }
-
-            .text {
-                margin-top: 8vh;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
             }
         }
     }
 
-    .button-next-container {
-        margin: 8vh 16vw;
-        
-        .button-next {
-            padding: 1.5vh 1vw;
-            background-color: #C4C4C4;
-            text-align: center;
-            border-radius: 25px;
-        }
+    .footer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: center;
+        margin: 1vh 15vw;
+    }
+
+}
+
+.logo-header {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
+

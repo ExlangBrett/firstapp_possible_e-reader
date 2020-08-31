@@ -13,17 +13,20 @@ import { createBrowserHistory } from "history";
 import ChapterContextProvider from "./contexts/chapterContext";
 import { ChapterContext } from "./contexts/chapterContext";
 
-import Home from "./components/home";
+import Home from "./components/home/home";
 import Dashboard from "./components/dashboard";
-import Chapter from "./components/chapter";
+import Chapter from "./components/chapter/chapter";
+import UserContextProvider, { UserContext } from "./contexts/userContext";
+import SignUp from "./components/home/signup";
+import SignIn from "./components/home/signin";
 
 const history = createBrowserHistory({ forceRefresh: true });
 
 function App() {
   return (
-    <ChapterContextProvider>
-      <Router history={history}>
-        <div>
+    <UserContextProvider>
+      <ChapterContextProvider>
+        <Router history={history}>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -34,10 +37,16 @@ function App() {
             <Route path="/chapter/:chapterId">
               <Chapter history={history} />
             </Route>
+            <Route path="/sign-up">
+              <SignUp />
+            </Route>
+            <Route path="/sign-in">
+              <SignIn />
+            </Route>
           </Switch>
-        </div>
-      </Router>
-    </ChapterContextProvider>
+        </Router>
+      </ChapterContextProvider>
+    </UserContextProvider>
   );
 }
 

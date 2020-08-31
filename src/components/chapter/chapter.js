@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { ChapterContext } from "../contexts/chapterContext";
+import { ChapterContext } from "../../contexts/chapterContext";
 
-import Navbar from "./navbar";
+import Navbar from "../navbar";
 import QuestionColumn from "./questionColumn";
 import QuestionCards from "./questionCards";
 import Congrats from "./congrats";
@@ -27,7 +27,7 @@ const Chapter = ({ history }) => {
 
   return currentQuestion ? (
     <div className="chapter">
-      <Navbar title={chapterName} />
+      <Navbar title={chapterName} exit={true} />
       <div className="chapter-inner">
         {showCongrats ? (
           <Congrats />

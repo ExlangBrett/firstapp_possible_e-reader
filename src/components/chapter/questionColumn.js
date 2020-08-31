@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import { ChapterContext } from "../contexts/chapterContext";
+import { ChapterContext } from "../../contexts/chapterContext";
 
 const QuestionColumn = () => {
   const { currentQuestion, isAnswerGiven, givenAnswer, setAnswer } = useContext(

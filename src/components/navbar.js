@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-const Navbar = ({ title }) => {
+import { UserContext } from "../contexts/userContext";
+
+const Navbar = ({ title, exit }) => {
   const history = useHistory();
+  const { signOut, signedIn, name } = useContext(UserContext);
+
   return (
     <div className="nav">
       <div className="exit" onClick={() => history.push("/dashboard")}>
-        <div className="exit-inner">X</div>
+        {exit ? <div className="exit-inner">X</div> : null}
       </div>
       <div className="title">{title}</div>
       <div className="name-container ">
-        <div className="name">JJ</div>
+        <div className="name">{name.substring(0, 2).toUpperCase()}</div>
       </div>
     </div>
   );

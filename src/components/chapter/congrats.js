@@ -1,6 +1,6 @@
 import React from "react";
 
-import congrats from "../static/imgs/congrats.svg";
+import congrats from "../../static/imgs/congrats.svg";
 
 const Congrats = () => {
   return (

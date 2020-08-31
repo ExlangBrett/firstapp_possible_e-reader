@@ -18,7 +18,7 @@ import Dashboard from "./components/dashboard";
 import Chapter from "./components/chapter/chapter";
 import UserContextProvider, { UserContext } from "./contexts/userContext";
 import SignUp from "./components/home/signup";
-import SignIn from "./components/home/signin";
+import SignInBase from "./components/home/signInBase";
 
 const history = createBrowserHistory({ forceRefresh: true });
 
@@ -41,7 +41,7 @@ function App() {
               <SignUp />
             </Route>
             <Route path="/sign-in">
-              <SignIn />
+              <SignInBase />
             </Route>
           </Switch>
         </Router>

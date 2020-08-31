@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
 
 import LogoHeader from "./logoHeader";
-import SignIn from "./signin";
+import SignInBase from "./signInBase";
 
 const Home = () => {
   const { signOut, showTokens, signedIn } = useContext(UserContext);
@@ -16,7 +16,7 @@ const Home = () => {
         <LogoHeader />
       </div>
       <div className="content">
-        <SignIn />
+        <SignInBase />
       </div>
       <div className="footer">
         By creating an account, I accept the Terms of Service of Experience

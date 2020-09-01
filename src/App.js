@@ -17,8 +17,6 @@ import Home from "./components/home/home";
 import Dashboard from "./components/dashboard";
 import Chapter from "./components/chapter/chapter";
 import UserContextProvider, { UserContext } from "./contexts/userContext";
-import SignUp from "./components/home/signup";
-import SignInBase from "./components/home/signInBase";
 
 const history = createBrowserHistory({ forceRefresh: true });
 
@@ -28,7 +26,7 @@ function App() {
       <ChapterContextProvider>
         <Router history={history}>
           <Switch>
-            <Route exact path="/">
+            <Route path="/">
               <Home />
             </Route>
             <Route path="/dashboard">
@@ -36,12 +34,6 @@ function App() {
             </Route>
             <Route path="/chapter/:chapterId">
               <Chapter history={history} />
-            </Route>
-            <Route path="/sign-up">
-              <SignUp />
-            </Route>
-            <Route path="/sign-in">
-              <SignInBase />
             </Route>
           </Switch>
         </Router>

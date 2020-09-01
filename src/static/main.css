@@ -13,6 +13,11 @@
   src: url(./fonts/segoe-ui/segoeuil.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: 'Segoe UI Bold';
+  src: url(./fonts/segoe-ui/SegoeUIBold.ttf) format("truetype");
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI';
@@ -54,7 +59,7 @@ body {
           flex-direction: column;
 }
 
-.home .content .signin-base {
+.home .content .auth-base {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -67,13 +72,13 @@ body {
           flex-direction: column;
 }
 
-.home .content .signin-base .background {
+.home .content .auth-base .background {
   background-color: white;
   margin: 0 3vw;
   border-radius: 55px 12px;
 }
 
-.home .content .signin-base .main {
+.home .content .auth-base .main {
   -webkit-box-flex: 0.8;
       -ms-flex: 0.8;
           flex: 0.8;
@@ -86,7 +91,7 @@ body {
           flex-direction: column;
 }
 
-.home .content .signin-base .main .signin-options {
+.home .content .auth-base .main .signin-options {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -100,67 +105,7 @@ body {
   padding-bottom: 2vh;
 }
 
-.home .content .signin-base .main .signin-options .main-text {
-  font-family: 'Segoe UI Light';
-  -webkit-box-flex: 0.4;
-      -ms-flex: 0.4;
-          flex: 0.4;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  font-weight: 300;
-  font-size: 2.2rem;
-}
-
-.home .content .signin-base .main .signin-options .option {
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-}
-
-.home .content .signin-base .main .signin-options .signin-options-content {
-  -webkit-box-flex: 0.6;
-      -ms-flex: 0.6;
-          flex: 0.6;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.home .content .signin-base .main .signin-options .option-text {
-  padding-left: 1.5vw;
-}
-
-.home .content .signin-base .main .signin-email {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-bottom: 2vh;
-}
-
-.home .content .signin-base .main .signin-email .main-text {
+.home .content .auth-base .main .signin-options .main-text {
   font-family: 'Segoe UI Light';
   -webkit-box-flex: 0.3;
       -ms-flex: 0.3;
@@ -171,14 +116,83 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-weight: 300;
   font-size: 2rem;
 }
 
-.home .content .signin-base .main .signin-email .signin-email-content {
+.home .content .auth-base .main .signin-options .signin-options-content {
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.home .content .auth-base .main .signin-options .signin-options-content .option {
+  background-color: white;
+  width: 80%;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  margin-top: 2vh;
+  padding: 2vh 0 2vh 3vw;
+  color: black;
+}
+
+.home .content .auth-base .main .signin-options .signin-options-content .option .option-text {
+  padding-left: 1.5vw;
+}
+
+.home .content .auth-base .main .signin-options .signin-options-content .option:hover {
+  text-decoration: none;
+}
+
+.home .content .auth-base .main .signin-email {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 2vh;
+}
+
+.home .content .auth-base .main .signin-email .main-text {
+  font-family: 'Segoe UI Light';
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.home .content .auth-base .main .signin-email .signin-email-content {
   -webkit-box-flex: 0.6;
       -ms-flex: 0.6;
           flex: 0.6;
@@ -189,25 +203,60 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-.home .content .signin-base .main .signin-email .signin-email-content .email-input {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: 100%;
+.home .content .auth-base .main .signin-email .signin-email-content .email-input, .home .content .auth-base .main .signin-email .signin-email-content .password-input, .home .content .auth-base .main .signin-email .signin-email-content .signin-button {
+  background-color: #F3F3F3;
+  width: 80%;
+  margin-top: 2vh;
+  padding: 2vh 0 2vh 3vw;
 }
 
-.home .content .signin-base .main .signin-email .bottom-text {
-  -webkit-box-flex: 0.2;
-      -ms-flex: 0.2;
-          flex: 0.2;
+.home .content .auth-base .main .signin-email .signin-email-content .email-input input, .home .content .auth-base .main .signin-email .signin-email-content .password-input input, .home .content .auth-base .main .signin-email .signin-email-content .signin-button input {
+  border: none;
+  background-color: #F3F3F3;
 }
 
-.home .content .signin-base .main .signin-forgotten-password {
+.home .content .auth-base .main .signin-email .signin-email-content .email-input input:focus, .home .content .auth-base .main .signin-email .signin-email-content .password-input input:focus, .home .content .auth-base .main .signin-email .signin-email-content .signin-button input:focus {
+  outline: none;
+}
+
+.home .content .auth-base .main .signin-email .signin-email-content .signin-button {
+  text-align: center;
+  margin-top: 4vh;
+}
+
+.home .content .auth-base .main .signin-email .bottom-text {
+  -webkit-box-flex: 0.1;
+      -ms-flex: 0.1;
+          flex: 0.1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.8rem;
+}
+
+.home .content .auth-base .main .signin-email .bottom-text div {
+  display: inline-block;
+}
+
+.home .content .auth-base .main .signin-forgotten-password {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -218,64 +267,100 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   padding-bottom: 2vh;
 }
 
-.home .content .signin-base .main .signin-forgotten-password .main-text {
-  margin-top: 4vh;
+.home .content .auth-base .main .signin-forgotten-password .main-text {
+  font-family: 'Segoe UI Light';
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
+  padding: 2vh;
+  font-weight: 300;
+  font-size: 1.2rem;
 }
 
-.home .content .signin-base .main .signin-forgotten-password div input {
+.home .content .auth-base .main .signin-forgotten-password .signin-forgotten-password-content {
+  -webkit-box-flex: 0.9;
+      -ms-flex: 0.9;
+          flex: 0.9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home .content .auth-base .main .signin-forgotten-password .signin-forgotten-password-content .email-input {
   background-color: #F3F3F3;
+  width: 80%;
+  margin-top: 2vh;
+  padding: 2vh 0 2vh 3vw;
+}
+
+.home .content .auth-base .main .signin-forgotten-password .signin-forgotten-password-content .email-input input {
   border: none;
-  padding-left: 1.5vw;
+  background-color: #F3F3F3;
 }
 
-.home .content .signin-base .main .signin-forgotten-password div input::-webkit-input-placeholder {
-  color: #001A80;
-  font-weight: 600;
+.home .content .auth-base .main .signin-forgotten-password .signin-forgotten-password-content .email-input input:focus {
+  outline: none;
 }
 
-.home .content .signin-base .main .signin-forgotten-password div input:-ms-input-placeholder {
-  color: #001A80;
-  font-weight: 600;
-}
-
-.home .content .signin-base .main .signin-forgotten-password div input::-ms-input-placeholder {
-  color: #001A80;
-  font-weight: 600;
-}
-
-.home .content .signin-base .main .signin-forgotten-password div input::placeholder {
-  color: #001A80;
-  font-weight: 600;
-}
-
-.home .content .signin-base .main .signin-forgotten-password .send-password-button {
-  text-align: center;
+.home .content .auth-base .main .signin-forgotten-password .signin-forgotten-password-content .send-password-button {
   background-color: #F8F8F8;
+  width: 80%;
+  padding: 2vh 0 2vh 3vw;
   margin-bottom: 2vh;
-}
-
-.home .content .signin-base .main .signin-forgotten-password .send-password-button a {
-  font-weight: bold;
-}
-
-.home .content .signin-base .main .signin-forgotten-password .bottom-text {
   text-align: center;
+  margin-top: 4vh;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.home .content .auth-base .main .signin-forgotten-password .signin-forgotten-password-content .send-password-button a {
+  font-weight: bold;
+  color: black;
+  font-family: 'Segoe UI Bold';
+}
+
+.home .content .auth-base .main .signin-forgotten-password .bottom-text {
+  -webkit-box-flex: 0.1;
+      -ms-flex: 0.1;
+          flex: 0.1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.8rem;
 }
 
-.home .content .signin-base .bottom-text {
+.home .content .auth-base .main .signin-forgotten-password .bottom-text div {
+  display: inline-block;
+}
+
+.home .content .auth-base .bottom-text {
   -webkit-box-flex: 0.2;
       -ms-flex: 0.2;
           flex: 0.2;
@@ -292,6 +377,10 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.home .content .auth-base .bottom-text div {
+  display: inline-block;
 }
 
 .home .footer {

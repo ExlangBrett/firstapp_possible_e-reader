@@ -30,6 +30,8 @@ const UserContextProvider = (props) => {
   const [signUpConfirmed, setSignUpConfirmed] = useState(false);
   const [signInError, setSignInError] = useState("");
   const [signInConfirmed, setSignInConfirmed] = useState(false);
+  const [background, setBackground] = useState(false);
+  const [signInScreen, setSignInScreen] = useState("signInChooseOption");
 
   const setUpUserData = (idToken) => {
     const parsedToken = parseJwt(idToken);
@@ -191,6 +193,10 @@ const UserContextProvider = (props) => {
         signOut,
         signedIn,
         name,
+        background,
+        setBackground,
+        signInScreen,
+        setSignInScreen,
       }}
     >
       {props.children}

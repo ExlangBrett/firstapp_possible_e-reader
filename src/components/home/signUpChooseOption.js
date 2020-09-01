@@ -3,7 +3,7 @@ import { Link, useHistory, Route } from "react-router-dom";
 
 import { UserContext } from "../../contexts/userContext";
 
-const SignInChooseOption = () => {
+const SignUpChooseOption = () => {
   const history = useHistory();
   const { setSignInScreen, setBackground } = useContext(UserContext);
 
@@ -17,19 +17,19 @@ const SignInChooseOption = () => {
       <div className="signin-options-content">
         <div className="option">
           <img src={require("../../static/imgs/GoogleLogo.svg")} width="25" />
-          <a className="option-text">Sign in with Google</a>
+          <a className="option-text">Sign up with Google</a>
         </div>
         <div className="option">
           <img src={require("../../static/imgs/FBLogo.svg")} width="25" />
-          <a className="option-text">Sign in with Facebook</a>
+          <a className="option-text">Sign up with Facebook</a>
         </div>
-        <Link to="/sign-in/email" className="option">
+        <Link to="/sign-up/email" className="option">
           <img src={require("../../static/imgs/MailLogo.svg")} width="25" />
-          <a className="option-text">Sign in with email</a>
+          <a className="option-text">Sign up with email</a>
         </Link>
       </div>
     </div>
   );
 };
 
-export default SignInChooseOption;
+export default SignUpChooseOption;

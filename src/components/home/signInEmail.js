@@ -7,29 +7,33 @@ const SignInEmail = () => {
   return (
     <div className="signin-email">
       <div className="main-text">Welcome back.</div>
-      <div className="field">
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-        />
+      <div className="signin-email-content">
+        <div className="email-input">
+          <input
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+          />
+        </div>
+        <div className="password-input">
+          <input
+            placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            type="password"
+          />
+        </div>
+        <div className="signin-button">
+          <a>Sign In</a>
+          {"  "}
+          <img src={require("../../static/imgs/arrow.svg")} width="15" />
+        </div>
       </div>
-      <div className="field">
-        <input
-          placeholder="Password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          type="password"
-        />
-      </div>
-      <div className="signin-button field">
-        <a>Sign In</a>
-        {"  "}
-        <img src={require("../../static/imgs/arrow.svg")} width="15" />
-      </div>
+
+      <div className="bottom-text">Have you forgotten the password?</div>
     </div>
   );
 };

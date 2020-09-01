@@ -14,7 +14,7 @@ const SignInBase = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [background, setBackground] = useState(true);
-  const [screen, setScreen] = useState("signInForgottenPassword");
+  const [screen, setScreen] = useState("signIn");
 
   const history = useHistory();
 

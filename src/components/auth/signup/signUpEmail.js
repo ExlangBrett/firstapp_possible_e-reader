@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+import { UserContext } from "../../../contexts/userContext";
 
 const SignUpEmail = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  const { setSignInScreen, setBackground, signUp } = useContext(UserContext);
+
+  useEffect(() => {
+    setBackground(true);
+  }, []);
+
   return (
-    <div className="signin-email">
-      <div className="main-text">Welcome back.</div>
-      <div className="name-input">
-        <input
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-        />
-      </div>
-      <div className="signin-email-content">
+    <div className="signup-email">
+      <div className="main-text">Learn & Experience a language.</div>
+      <div className="signup-email-content">
+        <div className="name-input">
+          <input
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+          />
+        </div>
         <div className="email-input">
           <input
             placeholder="Email"
@@ -36,20 +44,10 @@ const SignUpEmail = () => {
             type="password"
           />
         </div>
-        <div className="signin-button">
-          <a>Sign In</a>
+        <div className="signup-button" onClick={signUp(name, email, password)}>
+          <span>Sign Up</span>
           {"  "}
           <img src={require("../../../static/imgs/arrow.svg")} width="15" />
-        </div>
-      </div>
-
-      <div className="bottom-text">
-        <div>
-          Already have an account?{" "}
-          <Link className="link" to="/sign-in">
-            Sign in
-          </Link>
-          .
         </div>
       </div>
     </div>

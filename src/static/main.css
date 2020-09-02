@@ -109,6 +109,8 @@ body {
   font-weight: 300;
   font-size: 2rem;
   text-align: center;
+  padding: 0 4vw;
+  padding-top: 2vh;
 }
 
 .auth-base .auth-base-content .main .signin-options .signin-options-content {
@@ -179,6 +181,8 @@ body {
   font-weight: 300;
   font-size: 2rem;
   text-align: center;
+  padding: 0 4vw;
+  padding-top: 2vh;
 }
 
 .auth-base .auth-base-content .main .signin-email .signin-email-content {
@@ -267,8 +271,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-top: 1vh;
   padding-bottom: 2vh;
+  padding-top: 1vh;
 }
 
 .auth-base .auth-base-content .main .signin-forgotten-password .main-text {
@@ -279,14 +283,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  text-align: center;
-  padding: 2vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-weight: 300;
   font-size: 1.2rem;
   text-align: center;
+  padding: 0 4vw;
+  padding-top: 2vh;
 }
 
 .auth-base .auth-base-content .main .signin-forgotten-password .signin-forgotten-password-content {
@@ -395,6 +402,8 @@ body {
   font-weight: 300;
   font-size: 2rem;
   text-align: center;
+  padding: 0 4vw;
+  padding-top: 2vh;
 }
 
 .auth-base .auth-base-content .main .signup-options .signup-options-content {
@@ -432,6 +441,93 @@ body {
 
 .auth-base .auth-base-content .main .signup-options .signup-options-content .option:hover {
   text-decoration: none;
+}
+
+.auth-base .auth-base-content .main .signup-email {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 2vh;
+}
+
+.auth-base .auth-base-content .main .signup-email .main-text {
+  font-family: 'Segoe UI Light';
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 300;
+  font-size: 2rem;
+  text-align: center;
+  padding: 0 4vw;
+  padding-top: 2vh;
+}
+
+.auth-base .auth-base-content .main .signup-email .signup-email-content {
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7;
+          flex: 0.7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.auth-base .auth-base-content .main .signup-email .signup-email-content .name-input, .auth-base .auth-base-content .main .signup-email .signup-email-content .email-input, .auth-base .auth-base-content .main .signup-email .signup-email-content .password-input, .auth-base .auth-base-content .main .signup-email .signup-email-content .signin-button {
+  background-color: #F3F3F3;
+  width: 80%;
+  margin-top: 2vh;
+  padding: 2vh 0 2vh 3vw;
+}
+
+.auth-base .auth-base-content .main .signup-email .signup-email-content .name-input input, .auth-base .auth-base-content .main .signup-email .signup-email-content .email-input input, .auth-base .auth-base-content .main .signup-email .signup-email-content .password-input input, .auth-base .auth-base-content .main .signup-email .signup-email-content .signin-button input {
+  border: none;
+  background-color: #F3F3F3;
+  width: 95%;
+}
+
+.auth-base .auth-base-content .main .signup-email .signup-email-content .name-input input:focus, .auth-base .auth-base-content .main .signup-email .signup-email-content .email-input input:focus, .auth-base .auth-base-content .main .signup-email .signup-email-content .password-input input:focus, .auth-base .auth-base-content .main .signup-email .signup-email-content .signin-button input:focus {
+  outline: none;
+}
+
+.auth-base .auth-base-content .main .signup-email .signup-email-content .signup-button {
+  background-color: #F8F8F8;
+  width: 80%;
+  padding: 2vh 0 2vh 3vw;
+  margin-bottom: 2vh;
+  text-align: center;
+  margin-top: 4vh;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.auth-base .auth-base-content .main .signup-email .signup-email-content .signup-button span {
+  font-family: 'Segoe UI Bold';
+  color: black;
 }
 
 .auth-base .auth-base-content .bottom-text {

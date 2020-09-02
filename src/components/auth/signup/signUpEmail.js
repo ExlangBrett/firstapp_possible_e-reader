@@ -8,7 +8,13 @@ const SignUpEmail = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setSignInScreen, setBackground, signUp } = useContext(UserContext);
+  const {
+    setSignInScreen,
+    setBackground,
+    signUp,
+    signUpError,
+    signUpConfirmed,
+  } = useContext(UserContext);
 
   useEffect(() => {
     setBackground(true);
@@ -16,7 +22,11 @@ const SignUpEmail = () => {
 
   return (
     <div className="signup-email">
-      <div className="main-text">Learn & Experience a language.</div>
+      {signUpError ? (
+        <div className="error">{signUpError}</div>
+      ) : (
+        <div className="main-text">Learn & Experience a language.</div>
+      )}
       <div className="signup-email-content">
         <div className="name-input">
           <input
@@ -44,7 +54,10 @@ const SignUpEmail = () => {
             type="password"
           />
         </div>
-        <div className="signup-button" onClick={signUp(name, email, password)}>
+        <div
+          className="signup-button"
+          onClick={() => signUp(name, email, password)}
+        >
           <span>Sign Up</span>
           {"  "}
           <img src={require("../../../static/imgs/arrow.svg")} width="15" />

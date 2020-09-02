@@ -478,6 +478,26 @@ body {
   padding-top: 2vh;
 }
 
+.auth-base .auth-base-content .main .signup-email .error {
+  color: red;
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  padding: 0 4vw;
+  padding-top: 2vh;
+  font-size: 1.2rem;
+}
+
 .auth-base .auth-base-content .main .signup-email .signup-email-content {
   -webkit-box-flex: 0.7;
       -ms-flex: 0.7;

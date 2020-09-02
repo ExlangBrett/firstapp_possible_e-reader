@@ -13,7 +13,7 @@ import { createBrowserHistory } from "history";
 import ChapterContextProvider from "./contexts/chapterContext";
 import { ChapterContext } from "./contexts/chapterContext";
 
-import Home from "./components/home/home";
+import AuthBase from "./components/auth/authBase";
 import Dashboard from "./components/dashboard";
 import Chapter from "./components/chapter/chapter";
 import UserContextProvider, { UserContext } from "./contexts/userContext";
@@ -27,7 +27,7 @@ function App() {
         <Router history={history}>
           <Switch>
             <Route path="/">
-              <Home />
+              <AuthBase />
             </Route>
             <Route path="/dashboard">
               <Dashboard />

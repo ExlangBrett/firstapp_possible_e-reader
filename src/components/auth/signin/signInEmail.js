@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-const SignUpEmail = () => {
+import { UserContext } from "../../../contexts/userContext";
+
+const SignInEmail = () => {
+  const { setBackground } = useContext(UserContext);
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    setBackground(true);
+  }, []);
 
   return (
     <div className="signin-email">
       <div className="main-text">Welcome back.</div>
-      <div className="name-input">
-        <input
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-        />
-      </div>
       <div className="signin-email-content">
         <div className="email-input">
           <input
@@ -37,9 +35,9 @@ const SignUpEmail = () => {
           />
         </div>
         <div className="signin-button">
-          <a>Sign In</a>
+          <span>Sign In</span>
           {"  "}
-          <img src={require("../../static/imgs/arrow.svg")} width="15" />
+          <img src={require("../../../static/imgs/arrow.svg")} width="15" />
         </div>
       </div>
 
@@ -56,4 +54,4 @@ const SignUpEmail = () => {
   );
 };
 
-export default SignUpEmail;
+export default SignInEmail;

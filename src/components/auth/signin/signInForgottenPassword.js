@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { UserContext } from "../../contexts/userContext";
+import { UserContext } from "../../../contexts/userContext";
 
 const SignInForgottenPassword = () => {
   const [email, setEmail] = useState("");
@@ -27,15 +27,15 @@ const SignInForgottenPassword = () => {
           />
         </div>
         <div className="send-password-button">
-          <a>Send Password</a>
+          <span>Send Password</span>
           {"  "}
-          <img src={require("../../static/imgs/arrow.svg")} width="15" />
+          <img src={require("../../../static/imgs/arrow.svg")} width="15" />
         </div>
       </div>
 
       <div className="bottom-text">
         <div>
-          Found the password? <Link to="/sign-in/email">Sign in</Link>
+          Found the password? <Link to="/sign-in/email">Sign in</Link>.
         </div>
       </div>
     </div>

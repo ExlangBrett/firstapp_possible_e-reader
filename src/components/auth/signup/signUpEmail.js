@@ -23,7 +23,14 @@ const SignUpEmail = () => {
     setBackground(true);
   }, []);
 
-  return (
+  return signUpConfirmed ? (
+    <div className="signup-email">
+      <div className="signup-success">
+        You have succesfully signed up. Now you need to verify your email
+        address. Then you can <Link to="/sign-in/email">sign in</Link>.
+      </div>
+    </div>
+  ) : (
     <div className="signup-email">
       {signUpError ? (
         <div className="error">{signUpError}</div>

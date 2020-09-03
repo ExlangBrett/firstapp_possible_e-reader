@@ -23,7 +23,7 @@ const getCurrTimeSec = () => {
 };
 
 const UserContextProvider = (props) => {
-  const api = "http://localhost:3001";
+  const api = "http://127.0.0.1:3001";
   const [signedIn, setSignedIn] = useState(false);
   const [name, setName] = useState("");
   const [signUpError, setSignUpError] = useState("");

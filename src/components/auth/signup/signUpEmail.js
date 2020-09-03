@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 import { UserContext } from "../../../contexts/userContext";
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
 const SignUpEmail = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");

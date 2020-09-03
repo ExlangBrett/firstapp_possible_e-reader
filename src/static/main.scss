@@ -23,6 +23,17 @@ body {
     font-family: 'Segoe UI';
 }
 
+.loader {
+    z-index: 100;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+}
+
 .auth-base {
     background: 
     linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 

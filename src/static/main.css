@@ -23,6 +23,23 @@ body {
   font-family: 'Segoe UI';
 }
 
+.loader {
+  z-index: 100;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .auth-base {
   background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(rgba(255, 255, 255, 0))), radial-gradient(415.12% 164.38% at 49.86% 22.34%, #E7E3EC 0%, #D1D1D1 55.73%, #C8C8C8 100%);
   background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(415.12% 164.38% at 49.86% 22.34%, #E7E3EC 0%, #D1D1D1 55.73%, #C8C8C8 100%);

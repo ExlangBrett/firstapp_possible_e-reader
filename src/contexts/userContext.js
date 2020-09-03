@@ -32,6 +32,7 @@ const UserContextProvider = (props) => {
   const [signInConfirmed, setSignInConfirmed] = useState(false);
   const [background, setBackground] = useState(false);
   const [signInScreen, setSignInScreen] = useState("signInChooseOption");
+  const [loading, setLoading] = useState(false);
 
   const setUpUserData = (idToken) => {
     const parsedToken = parseJwt(idToken);
@@ -109,6 +110,7 @@ const UserContextProvider = (props) => {
   };
 
   const signUp = async (name, email, password) => {
+    setLoading(true);
     if (name.length === 0) {
       setSignUpError("Incorrect name!");
     } else if (!validateEmail(email)) {
@@ -136,6 +138,7 @@ const UserContextProvider = (props) => {
         setSignUpConfirmed(true);
       }
     }
+    setLoading(false);
   };
 
   const signIn = async (email, password) => {
@@ -182,6 +185,7 @@ const UserContextProvider = (props) => {
   return (
     <UserContext.Provider
       value={{
+        loading,
         showTokens,
         signUp,
         signUpError,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./static/main.css";
 
 import {
@@ -17,6 +17,7 @@ import AuthBase from "./components/auth/authBase";
 import Dashboard from "./components/dashboard";
 import Chapter from "./components/chapter/chapter";
 import UserContextProvider, { UserContext } from "./contexts/userContext";
+import Loading from "./components/loading";
 
 const history = createBrowserHistory({ forceRefresh: true });
 
@@ -25,6 +26,7 @@ function App() {
     <UserContextProvider>
       <ChapterContextProvider>
         <Router history={history}>
+          <Loading />
           <Switch>
             <Route path="/">
               <AuthBase />

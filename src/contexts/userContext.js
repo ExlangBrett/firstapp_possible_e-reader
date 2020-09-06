@@ -142,23 +142,31 @@ const UserContextProvider = (props) => {
   };
 
   const signIn = async (email, password) => {
-    const res = await fetch(api + "/signin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    });
-    const { message, data } = await res.json();
-    if (res.status == 200) {
-      setUpTokens(data["idToken"], data["accessToken"], data["refreshToken"]);
-      setSignInConfirmed(true);
+    setLoading(true);
+    if (!validateEmail(email)) {
+      setSignInError("Incorrect Email!");
+    } else if (!validatePassword(password)) {
+      setSignInError("Invalid password!");
     } else {
-      setSignInError(message);
+      const res = await fetch(api + "/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      const { message, data } = await res.json();
+      if (res.status == 200) {
+        setUpTokens(data["idToken"], data["accessToken"], data["refreshToken"]);
+        setSignInConfirmed(true);
+      } else {
+        setSignInError(message);
+      }
     }
+    setLoading(false);
   };
 
   const restoreSignIn = () => {

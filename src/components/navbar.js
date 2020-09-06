@@ -8,13 +8,21 @@ const Navbar = ({ title, exit }) => {
   const { signOut, signedIn, name } = useContext(UserContext);
 
   return (
-    <div className="nav">
-      <div className="exit" onClick={() => history.push("/dashboard")}>
-        {exit ? <div className="exit-inner">X</div> : null}
+    <div className="navbar">
+      <div className="menu" onClick={() => history.push("/dashboard")}>
+        {exit ? (
+          <div className="exit">
+            <img src={require("../static/imgs/x.svg")} />
+          </div>
+        ) : (
+          <div className="menu-inner">
+            <img src={require("../static/imgs/menu.svg")} />
+          </div>
+        )}
       </div>
       <div className="title">{title}</div>
-      <div className="name-container ">
-        <div className="name">{name.substring(0, 2).toUpperCase()}</div>
+      <div className="person">
+        <img src={require("../static/imgs/person.svg")} />
       </div>
     </div>
   );

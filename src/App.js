@@ -14,8 +14,8 @@ import ChapterContextProvider from "./contexts/chapterContext";
 import { ChapterContext } from "./contexts/chapterContext";
 
 import AuthBase from "./components/auth/authBase";
-import Dashboard from "./components/dashboard";
-import Chapter from "./components/chapter/chapter";
+import Dashboard from "./components/learning/dashboard";
+import Chapter from "./components/learning/chapter";
 import UserContextProvider, { UserContext } from "./contexts/userContext";
 import Loading from "./components/loading";
 
@@ -28,7 +28,7 @@ function App() {
         <Router history={history}>
           <Loading />
           <Switch>
-            <Route path="/">
+            <Route path={["/sign-in", "/sign-up"]}>
               <AuthBase />
             </Route>
             <Route path="/dashboard">

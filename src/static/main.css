@@ -202,6 +202,26 @@ body {
   padding-top: 2vh;
 }
 
+.auth-base .auth-base-content .main .signin-email .error {
+  color: red;
+  -webkit-box-flex: 0.3;
+      -ms-flex: 0.3;
+          flex: 0.3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  padding: 0 4vw;
+  padding-top: 2vh;
+  font-size: 1.2rem;
+}
+
 .auth-base .auth-base-content .main .signin-email .signin-email-content {
   -webkit-box-flex: 0.6;
       -ms-flex: 0.6;
@@ -231,6 +251,7 @@ body {
 .auth-base .auth-base-content .main .signin-email .signin-email-content .email-input input, .auth-base .auth-base-content .main .signin-email .signin-email-content .password-input input, .auth-base .auth-base-content .main .signin-email .signin-email-content .signin-button input {
   border: none;
   background-color: #F3F3F3;
+  width: 95%;
 }
 
 .auth-base .auth-base-content .main .signin-email .signin-email-content .email-input input:focus, .auth-base .auth-base-content .main .signin-email .signin-email-content .password-input input:focus, .auth-base .auth-base-content .main .signin-email .signin-email-content .signin-button input:focus {
@@ -238,6 +259,10 @@ body {
 }
 
 .auth-base .auth-base-content .main .signin-email .signin-email-content .signin-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-color: #F8F8F8;
   width: 80%;
   padding: 2vh 0 2vh 3vw;
@@ -246,6 +271,10 @@ body {
   margin-top: 4vh;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.auth-base .auth-base-content .main .signin-email .signin-email-content .signin-button:hover {
+  cursor: pointer;
 }
 
 .auth-base .auth-base-content .main .signin-email .signin-email-content .signin-button span {
@@ -342,6 +371,7 @@ body {
 .auth-base .auth-base-content .main .signin-forgotten-password .signin-forgotten-password-content .email-input input {
   border: none;
   background-color: #F3F3F3;
+  width: 95%;
 }
 
 .auth-base .auth-base-content .main .signin-forgotten-password .signin-forgotten-password-content .email-input input:focus {
@@ -671,5 +701,211 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.navbar {
+  height: 8vh;
+  background-color: #001A80;
+  color: white;
+}
+
+.navbar .title {
+  font-family: 'Segoe UI Bold';
+  font-size: 1.2rem;
+}
+
+.navbar .menu-inner, .navbar .exit, .navbar .person {
+  margin-top: -1vh;
+}
+
+.dashboard {
+  background-color: #EFEFEF;
+}
+
+.dashboard .dashboard-content .dashboard-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2vh 12vw 0 12vw;
+}
+
+.dashboard .dashboard-content .dashboard-header .title {
+  font-size: 1.4rem;
+  text-align: right;
+}
+
+.dashboard .dashboard-content .dashboard-chapters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 4vh 4vw 0 4vw;
+}
+
+.dashboard .dashboard-content .dashboard-chapters .dashboard-chapter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 4vh 4vw;
+  margin-bottom: 3vh;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.dashboard .dashboard-content .dashboard-chapters .dashboard-chapter .img {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard .dashboard-content .dashboard-chapters .dashboard-chapter .number {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Segoe UI Bold';
+  color: #FFFFFF;
+  margin: 0 2vw 0 0;
+}
+
+.dashboard .dashboard-content .dashboard-chapters .dashboard-chapter .number div {
+  height: 25px;
+  width: 25px;
+  background-color: #3EC200;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.dashboard .dashboard-content .dashboard-chapters .dashboard-chapter .about {
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard .dashboard-content .dashboard-chapters .dashboard-chapter .about .title {
+  font-family: 'Segoe UI Bold';
+  font-size: 1.2rem;
+}
+
+.dashboard .dashboard-content .dashboard-chapters .dashboard-chapter .about .description {
+  color: #7D7D7D;
+}
+
+.chapter .chapter-content {
+  margin: 1vh 4vw 0 4vw;
+}
+
+.chapter .chapter-content .chapter-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #868686;
+}
+
+.chapter .chapter-content .chapter-question {
+  font-family: 'Segoe UI Bold';
+  font-size: 1.2rem;
+  margin-top: 3vh;
+  color: #272727;
+}
+
+.chapter .chapter-content .chapter-answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 3vh 0 0 0;
+}
+
+.chapter .chapter-content .chapter-answers .answer {
+  font-size: 1.2rem;
+  padding: 2vh 4vw;
+  background-color: #FAFAFA;
+  border: 2px solid #CACACA;
+  border-radius: 4px;
+  margin-top: 2vh;
+}
+
+.chapter .chapter-content .elipse {
+  margin: 2vh 0;
+  text-align: center;
+}
+
+.chapter .chapter-content .submit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2vh;
+  font-family: 'Segoe UI Bold';
+  color: #FFFFFF;
+  width: 100%;
+}
+
+.chapter .chapter-content .submit-button .active, .chapter .chapter-content .submit-button .not-active {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 109px;
+  text-align: center;
+  padding: 1.1vh 0;
+  font-size: 1.2rem;
+}
+
+.chapter .chapter-content .submit-button .active {
+  background-color: #4FB5FF;
+  border: 1px solid #3299E3;
+}
+
+.chapter .chapter-content .submit-button .not-active {
+  background-color: #dfdfdf;
 }
 /*# sourceMappingURL=main.css.map */

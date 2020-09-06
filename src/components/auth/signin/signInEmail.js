@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { UserContext } from "../../../contexts/userContext";
 
 const SignInEmail = () => {
-  const { setBackground } = useContext(UserContext);
+  const { setBackground, signIn, signInError, signInConfirmed } = useContext(
+    UserContext
+  );
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,9 +15,19 @@ const SignInEmail = () => {
     setBackground(true);
   }, []);
 
+  useEffect(() => {
+    if (signInConfirmed) {
+      history.push("/dashboard");
+    }
+  }, [signInConfirmed]);
+
   return (
     <div className="signin-email">
-      <div className="main-text">Welcome back.</div>
+      {signInError ? (
+        <div className="error">{signInError}</div>
+      ) : (
+        <div className="main-text">Welcome back.</div>
+      )}
       <div className="signin-email-content">
         <div className="email-input">
           <input
@@ -34,7 +47,7 @@ const SignInEmail = () => {
             type="password"
           />
         </div>
-        <div className="signin-button">
+        <div className="signin-button" onClick={() => signIn(email, password)}>
           <span>Sign In</span>
           {"  "}
           <img src={require("../../../static/imgs/arrow.svg")} width="15" />

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import img1 from "../../static/imgs/imgplaceholder1.svg";
 import img2 from "../../static/imgs/imgplaceholder2.svg";

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./static/main.css";
 
 import {
@@ -43,12 +43,10 @@ const Paths = () => {
       <Route path={["/sign-in", "/sign-up"]}>
         <AuthBase />
       </Route>
-      <Route path="/">
+      <Redirect exact from="/" to="/dashboard" />
+      <Route path={["/dashboard", "/chapter"]}>
         {signedIn ? (
           <>
-            <Route exact path="/">
-              <Redirect to="/dashboard" />
-            </Route>
             <Route path="/dashboard">
               <Dashboard />
             </Route>
@@ -57,11 +55,21 @@ const Paths = () => {
             </Route>
           </>
         ) : (
-          <Redirect to="/sign-in" />
+          <Redir />
         )}
       </Route>
     </Switch>
   );
+};
+
+const Redir = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    window.location.href = "/sign-in";
+  }, []);
+
+  return <></>;
 };
 
 export default App;

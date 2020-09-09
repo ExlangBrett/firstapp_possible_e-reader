@@ -5,6 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   Link,
   useHistory,
 } from "react-router-dom";
@@ -27,21 +28,40 @@ function App() {
       <ChapterContextProvider>
         <Router history={history}>
           <Loading />
-          <Switch>
-            <Route path={["/sign-in", "/sign-up"]}>
-              <AuthBase />
-            </Route>
-            <Route path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route path="/chapter/:chapterId">
-              <Chapter history={history} />
-            </Route>
-          </Switch>
+          <Paths />
         </Router>
       </ChapterContextProvider>
     </UserContextProvider>
   );
 }
+
+const Paths = () => {
+  const { signedIn } = useContext(UserContext);
+
+  return (
+    <Switch>
+      <Route path={["/sign-in", "/sign-up"]}>
+        <AuthBase />
+      </Route>
+      <Route path="/">
+        {signedIn ? (
+          <>
+            <Route exact path="/">
+              <Redirect to="/dashboard" />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/chapter/:chapterId">
+              <Chapter />
+            </Route>
+          </>
+        ) : (
+          <Redirect to="/sign-in" />
+        )}
+      </Route>
+    </Switch>
+  );
+};
 
 export default App;

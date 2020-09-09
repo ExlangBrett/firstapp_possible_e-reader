@@ -101,6 +101,11 @@
                         }
                     }
 
+                    .not-active {
+                        background-color: #f4f3f5;
+                        color: #a1a0a2;
+                    }
+
                     .option:hover {
                         text-decoration: none; 
                     }
@@ -264,6 +269,11 @@
                         &:hover {
                             text-decoration: none; 
                         }
+                    }
+
+                    .not-active {
+                        background-color: #f4f3f5;
+                        color: #a1a0a2;
                     }
                 }
             }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import img1 from "../../static/imgs/imgplaceholder1.svg";
 import img2 from "../../static/imgs/imgplaceholder2.svg";
@@ -6,6 +6,7 @@ import img3 from "../../static/imgs/imgplaceholder3.svg";
 
 import { useHistory } from "react-router-dom";
 
+import { UserContext } from "../../contexts/userContext";
 import Navbar from "../navbar";
 
 const Dashboard = () => {
@@ -51,7 +52,13 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-chapters">
           {chapters.map((item, i) => (
-            <div key={i} className="dashboard-chapter">
+            <div
+              key={i}
+              className="dashboard-chapter"
+              onClick={() => {
+                history.push("/chapter/1");
+              }}
+            >
               <div className="img">
                 <img src={item.image} />
               </div>
@@ -60,7 +67,7 @@ const Dashboard = () => {
               </div>
               <div className="about">
                 <div className="title">{item.title}</div>
-                <div classname="description">{item.description}</div>
+                <div className="description">{item.description}</div>
               </div>
             </div>
           ))}

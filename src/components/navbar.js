@@ -21,7 +21,7 @@ const Navbar = ({ title, exit }) => {
         )}
       </div>
       <div className="title">{title}</div>
-      <div className="person">
+      <div className="person" onClick={() => signOut()}>
         <img src={require("../static/imgs/person.svg")} />
       </div>
     </div>

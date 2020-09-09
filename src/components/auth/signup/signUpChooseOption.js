@@ -15,14 +15,14 @@ const SignUpChooseOption = () => {
     <div className="signup-options">
       <div className="main-text">Learn & Experience a language</div>
       <div className="signup-options-content">
-        <div className="option">
+        <div className="option not-active">
           <img
             src={require("../../../static/imgs/GoogleLogo.svg")}
             width="25"
           />
           <a className="option-text">Sign up with Google</a>
         </div>
-        <div className="option">
+        <div className="option not-active">
           <img src={require("../../../static/imgs/FBLogo.svg")} width="25" />
           <a className="option-text">Sign up with Facebook</a>
         </div>

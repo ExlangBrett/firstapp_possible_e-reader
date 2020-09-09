@@ -23,8 +23,8 @@ const getCurrTimeSec = () => {
 };
 
 const UserContextProvider = (props) => {
-  const api = "http://127.0.0.1:3001";
-  const [signedIn, setSignedIn] = useState(false);
+  const api = "https://user.exlanguage.com";
+  const [signedIn, setSignedIn] = useState(true);
   const [name, setName] = useState("");
   const [signUpError, setSignUpError] = useState("");
   const [signUpConfirmed, setSignUpConfirmed] = useState(false);
@@ -89,6 +89,8 @@ const UserContextProvider = (props) => {
       setTimeout(() => {
         refreshIdToken();
       }, (localStorage.getItem("expiresAt") - getCurrTimeSec()) * 1000);
+    } else {
+      setSignedIn(false);
     }
   }, []);
 

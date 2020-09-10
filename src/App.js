@@ -55,6 +55,7 @@ const Paths = () => {
             </Route>
           </>
         ) : (
+          // <Redirect to="/sign-in" /> breaks sign in with email button
           <Redir />
         )}
       </Route>

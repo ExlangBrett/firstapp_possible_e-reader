@@ -6,7 +6,7 @@ export const LearningContext = createContext();
 
 const LearningContextProvider = (props) => {
   const { setLoading } = useContext(UserContext);
-  const api = "http://localhost:3000";
+  const api = "https://lessons.exlanguage.com";
   const [chapters, setChapters] = useState([]);
   const [chapter, setChapter] = useState({});
   const [questions, setQuestions] = useState([]);
@@ -17,9 +17,10 @@ const LearningContextProvider = (props) => {
     const res = await fetch(api + url, {
       method,
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Bearer " + localStorage.getItem("idToken"),
       },
-      body,
+      body: JSON.stringify(body),
     });
     const { message, data } = await res.json();
     if (res.status === 200) {
@@ -31,52 +32,22 @@ const LearningContextProvider = (props) => {
 
   const getChapters = async () => {
     setLoading(true);
-    const data = callApi("/get-chapters", "POST", {});
+    const data = await callApi("/get-chapters", "POST", {});
+    console.log(data);
     setChapters(data);
     setLoading(false);
   };
 
-  const getChapter = async (chapterId) => {
-    const res = await fetch(api + "/get-chapter", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        chapter_id: chapterId,
-      }),
-    });
-    const { message, data } = await res.json();
-    if (res.status == 200) {
-      setChapter(data[0]);
-    } else {
-      console.log("error", message);
-    }
-  };
-
-  const getQuestions = async (chapterId) => {
-    const res = await fetch(api + "/get-questions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        chapter_id: chapterId,
-      }),
-    });
-    const { message, data } = await res.json();
-    if (res.status == 200) {
-      setQuestions(data);
-      setCurrentQuestion(data[0]);
-      setAnswers(JSON.parse(data[0].answers));
-    } else {
-      console.log("error", message);
-    }
-  };
-
   const chooseChapter = async (chapterId) => {
-    const currChapter = getChapter(chapterId);
-    const currQuestions = getQuestions(chapterId);
+    setLoading(true);
+    const data = await callApi("/get-chapter", "POST", {
+      chapter_id: chapterId,
+    });
+    setChapter(data["chapter"][0]);
+    setQuestions(data["questions"]);
+    setCurrentQuestion(data["questions"][0]);
+    setAnswers(JSON.parse(data["questions"][0].answers));
+    setLoading(false);
   };
 
   return (
@@ -90,6 +61,7 @@ const LearningContextProvider = (props) => {
         setChapter,
         answers,
         chapter,
+        callApi,
       }}
     >
       {props.children}

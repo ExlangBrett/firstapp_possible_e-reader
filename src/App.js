@@ -18,6 +18,9 @@ import AuthBase from "./components/auth/authBase";
 import Dashboard from "./components/learning/dashboard";
 import Chapter from "./components/learning/chapter";
 import UserContextProvider, { UserContext } from "./contexts/userContext";
+import LearningContextProvider, {
+  LearningContext,
+} from "./contexts/learningContext";
 import Loading from "./components/loading";
 
 const history = createBrowserHistory({ forceRefresh: true });
@@ -25,12 +28,12 @@ const history = createBrowserHistory({ forceRefresh: true });
 function App() {
   return (
     <UserContextProvider>
-      <ChapterContextProvider>
+      <LearningContextProvider>
         <Router history={history}>
           <Loading />
           <Paths />
         </Router>
-      </ChapterContextProvider>
+      </LearningContextProvider>
     </UserContextProvider>
   );
 }

@@ -734,6 +734,7 @@ body {
 
 .dashboard {
   background-color: #EFEFEF;
+  min-height: 100vh;
 }
 
 .dashboard .dashboard-content .dashboard-header {
@@ -884,6 +885,11 @@ body {
   border: 2px solid #CACACA;
   border-radius: 4px;
   margin-top: 2vh;
+}
+
+.chapter .chapter-content .chapter-answers .highlighted {
+  background-color: #D8F6FF;
+  border-color: #5199CE;
 }
 
 .chapter .chapter-content .elipse {

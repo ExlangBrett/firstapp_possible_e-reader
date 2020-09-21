@@ -211,6 +211,7 @@ const UserContextProvider = (props) => {
         setBackground,
         signInScreen,
         setSignInScreen,
+        setLoading,
       }}
     >
       {props.children}

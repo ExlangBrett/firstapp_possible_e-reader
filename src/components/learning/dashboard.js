@@ -7,38 +7,16 @@ import img3 from "../../static/imgs/imgplaceholder3.svg";
 import { useHistory } from "react-router-dom";
 
 import { UserContext } from "../../contexts/userContext";
+import { LearningContext } from "../../contexts/learningContext";
 import Navbar from "../navbar";
 
 const Dashboard = () => {
   const history = useHistory();
+  const { getChapters, chapters } = useContext(LearningContext);
 
-  const chapters = [
-    {
-      title: "Chapter Title Will Appear Here",
-      description: "A one-to-two line brief will appear here.",
-      image: img1,
-    },
-    {
-      title: "Chapter Title Will Appear Here",
-      description: "A one-to-two line brief will appear here.",
-      image: img2,
-    },
-    {
-      title: "Chapter Title Will Appear Here",
-      description: "A one-to-two line brief will appear here.",
-      image: img3,
-    },
-    {
-      title: "Chapter Title Will Appear Here",
-      description: "A one-to-two line brief will appear here.",
-      image: img2,
-    },
-    {
-      title: "Chapter Title Will Appear Here",
-      description: "A one-to-two line brief will appear here.",
-      image: img1,
-    },
-  ];
+  useEffect(() => {
+    getChapters();
+  }, []);
 
   return (
     <div className="dashboard">
@@ -56,7 +34,10 @@ const Dashboard = () => {
               key={i}
               className="dashboard-chapter"
               onClick={() => {
-                history.push("/chapter/1");
+                history.push({
+                  pathname: "/chapter/" + item.chapter_number,
+                  state: { chapter: item },
+                });
               }}
             >
               <div className="img">

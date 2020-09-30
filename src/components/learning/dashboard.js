@@ -37,7 +37,7 @@ const Dashboard = () => {
               className="dashboard-chapter"
               onClick={() => {
                 history.push({
-                  pathname: "/concept/" + item["sc.id"],
+                  pathname: "/concept/" + item["main_concept_id"],
                   state: { chapter: item },
                 });
               }}

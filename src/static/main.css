@@ -892,6 +892,16 @@ body {
   border-color: #5199CE;
 }
 
+.chapter .chapter-content .chapter-answers .correct {
+  background-color: #DBFFD8;
+  border-color: #51CE6C;
+}
+
+.chapter .chapter-content .chapter-answers .wrong {
+  background-color: #FFD8D8;
+  border-color: #CE5151;
+}
+
 .chapter .chapter-content .elipse {
   margin: 2vh 0;
   text-align: center;

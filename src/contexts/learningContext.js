@@ -6,22 +6,24 @@ export const LearningContext = createContext();
 
 const LearningContextProvider = (props) => {
   const { setLoading } = useContext(UserContext);
-  // const api = "https://lessons.exlanguage.com";
-  const api = "http://localhost:3000";
+  const api = "https://lessons.exlanguage.com";
+  // const api = "http://localhost:3000";
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState({});
   const [question, setQuestion] = useState("");
   const [answers, setAnswers] = useState([]);
   const [mainConcepts, setMainConcepts] = useState([]);
   const [subConcepts, setSubConcepts] = useState([]);
+  const [questionsCount, setQuestionsCount] = useState(0);
+  const [currentQuestionNumber, setCurrentQuestionNumber] = useState(1);
 
   const callApi = async (url, method, body) => {
     const res = await fetch(api + url, {
       method,
-      // headers: {
-      //   "Content-Type": "application/x-www-form-urlencoded",
-      //   Authorization: "Bearer " + localStorage.getItem("idToken"),
-      // },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Bearer " + localStorage.getItem("idToken"),
+      },
       body: JSON.stringify(body),
     });
     const { message, data } = await res.json();
@@ -41,16 +43,17 @@ const LearningContextProvider = (props) => {
     setLoading(false);
   };
 
-  const getConcept = async () => {
+  const getConcept = async (conceptId) => {
     setLoading(true);
     const data = await callApi("/get-concept", "POST", {
-      conceptId: 14,
+      conceptId,
     });
     console.log(data);
     setQuestions(data["questions"]);
     setCurrentQuestion(data["questions"][0]);
     setAnswers(data["questions"][0]["answers"]);
-    setQuestions(data["questions"][0]["question"]);
+    setQuestion(data["questions"][0]["question"]);
+    setQuestionsCount(data["questions"].length);
     setLoading(false);
   };
 
@@ -59,9 +62,17 @@ const LearningContextProvider = (props) => {
     const data = await callApi("/update-user-sub-stats", "POST", {
       subConceptId,
       toUpdate,
+      questionsAnsweredCount: currentQuestionNumber + 1,
     });
     console.log(data);
     setLoading(false);
+  };
+
+  const nextQuestion = async () => {
+    setCurrentQuestion(questions[currentQuestionNumber]);
+    setAnswers(questions[currentQuestionNumber]["answers"]);
+    setQuestion(questions[currentQuestionNumber]["question"]);
+    setCurrentQuestionNumber(currentQuestionNumber + 1);
   };
 
   return (
@@ -76,6 +87,9 @@ const LearningContextProvider = (props) => {
         mainConcepts,
         subConcepts,
         updateUserSubStats,
+        questionsCount,
+        currentQuestionNumber,
+        nextQuestion,
       }}
     >
       {props.children}

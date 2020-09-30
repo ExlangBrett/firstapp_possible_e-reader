@@ -6,20 +6,22 @@ export const LearningContext = createContext();
 
 const LearningContextProvider = (props) => {
   const { setLoading } = useContext(UserContext);
-  const api = "https://lessons.exlanguage.com";
-  const [chapters, setChapters] = useState([]);
-  const [chapter, setChapter] = useState({});
+  // const api = "https://lessons.exlanguage.com";
+  const api = "http://localhost:3000";
   const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState();
+  const [currentQuestion, setCurrentQuestion] = useState({});
+  const [question, setQuestion] = useState("");
   const [answers, setAnswers] = useState([]);
+  const [mainConcepts, setMainConcepts] = useState([]);
+  const [subConcepts, setSubConcepts] = useState([]);
 
   const callApi = async (url, method, body) => {
     const res = await fetch(api + url, {
       method,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Bearer " + localStorage.getItem("idToken"),
-      },
+      // headers: {
+      //   "Content-Type": "application/x-www-form-urlencoded",
+      //   Authorization: "Bearer " + localStorage.getItem("idToken"),
+      // },
       body: JSON.stringify(body),
     });
     const { message, data } = await res.json();
@@ -30,38 +32,50 @@ const LearningContextProvider = (props) => {
     }
   };
 
-  const getChapters = async () => {
+  const getConcepts = async () => {
     setLoading(true);
-    const data = await callApi("/get-chapters", "POST", {});
+    const data = await callApi("/get-concepts", "POST", {});
     console.log(data);
-    setChapters(data);
+    setMainConcepts(data["main_concepts"]);
+    setSubConcepts(data["sub_concepts"]);
     setLoading(false);
   };
 
-  const chooseChapter = async (chapterId) => {
+  const getConcept = async () => {
     setLoading(true);
-    const data = await callApi("/get-chapter", "POST", {
-      chapter_id: chapterId,
+    const data = await callApi("/get-concept", "POST", {
+      conceptId: 14,
     });
-    setChapter(data["chapter"][0]);
+    console.log(data);
     setQuestions(data["questions"]);
     setCurrentQuestion(data["questions"][0]);
-    setAnswers(JSON.parse(data["questions"][0].answers));
+    setAnswers(data["questions"][0]["answers"]);
+    setQuestions(data["questions"][0]["question"]);
+    setLoading(false);
+  };
+
+  const updateUserSubStats = async (subConceptId, toUpdate) => {
+    setLoading(true);
+    const data = await callApi("/update-user-sub-stats", "POST", {
+      subConceptId,
+      toUpdate,
+    });
+    console.log(data);
     setLoading(false);
   };
 
   return (
     <LearningContext.Provider
       value={{
-        getChapters,
-        chapters,
-        chooseChapter,
         questions,
         currentQuestion,
-        setChapter,
+        question,
         answers,
-        chapter,
-        callApi,
+        getConcepts,
+        getConcept,
+        mainConcepts,
+        subConcepts,
+        updateUserSubStats,
       }}
     >
       {props.children}

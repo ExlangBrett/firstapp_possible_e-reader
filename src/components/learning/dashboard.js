@@ -12,43 +12,54 @@ import Navbar from "../navbar";
 
 const Dashboard = () => {
   const history = useHistory();
-  const { getChapters, chapters } = useContext(LearningContext);
+  const { getConcepts, mainConcepts, subConcepts } = useContext(
+    LearningContext
+  );
 
   useEffect(() => {
-    getChapters();
+    getConcepts();
   }, []);
 
   return (
     <div className="dashboard">
-      <Navbar title={"Chapter Menu"} />
+      <Navbar title={"Main Concepts Menu"} />
       <div className="dashboard-content">
         <div className="dashboard-header">
           <div className="croods">
             <img src={require("../../static/imgs/CroodsSitting.svg")} />
           </div>
-          <div className="title">Choose a chapter to attempt the quiz.</div>
+          <div className="title">Choose a concept to attempt the quiz.</div>
         </div>
         <div className="dashboard-chapters">
-          {chapters.map((item, i) => (
+          {mainConcepts.map((item, i) => (
             <div
               key={i}
               className="dashboard-chapter"
               onClick={() => {
                 history.push({
-                  pathname: "/chapter/" + item.chapter_number,
+                  pathname: "/concept/" + item["sc.id"],
                   state: { chapter: item },
                 });
               }}
             >
-              <div className="img">
-                <img src={item.image} />
-              </div>
+              <div className="img">{/* <img src={} /> */}</div>
               <div className="number">
                 <div>{i + 1}</div>
               </div>
               <div className="about">
-                <div className="title">{item.title}</div>
-                <div className="description">{item.description}</div>
+                <div className="title">type: {item.type}</div>
+                <div className="description">
+                  {subConcepts.map((sub, i) => {
+                    if (sub.main_concept_id == item.id) {
+                      return (
+                        <span key={i}>
+                          {"   "}
+                          {sub.body}
+                        </span>
+                      );
+                    }
+                  })}
+                </div>
               </div>
             </div>
           ))}

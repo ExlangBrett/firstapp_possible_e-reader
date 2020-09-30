@@ -17,6 +17,7 @@ import { ChapterContext } from "./contexts/chapterContext";
 import AuthBase from "./components/auth/authBase";
 import Dashboard from "./components/learning/dashboard";
 import Chapter from "./components/learning/chapter";
+import Concept from "./components/learning/concept";
 import UserContextProvider, { UserContext } from "./contexts/userContext";
 import LearningContextProvider, {
   LearningContext,
@@ -47,7 +48,7 @@ const Paths = () => {
         <AuthBase />
       </Route>
       <Redirect exact from="/" to="/dashboard" />
-      <Route path={["/dashboard", "/chapter"]}>
+      <Route path={["/dashboard", "/chapter", "/concept"]}>
         {signedIn ? (
           <>
             <Route path="/dashboard">
@@ -55,6 +56,9 @@ const Paths = () => {
             </Route>
             <Route path="/chapter/:chapterId">
               <Chapter />
+            </Route>
+            <Route path="/concept/:conceptId">
+              <Concept />
             </Route>
           </>
         ) : (

@@ -23,6 +23,7 @@ import LearningContextProvider, {
   LearningContext,
 } from "./contexts/learningContext";
 import Loading from "./components/loading";
+import Home from "./components/home/home";
 
 const history = createBrowserHistory({ forceRefresh: true });
 
@@ -47,10 +48,13 @@ const Paths = () => {
       <Route path={["/sign-in", "/sign-up"]}>
         <AuthBase />
       </Route>
-      <Redirect exact from="/" to="/dashboard" />
-      <Route path={["/dashboard", "/chapter", "/concept"]}>
+      {/* <Redirect exact from="/" to="/dashboard" /> */}
+      <Route path={["/", "/dashboard", "/chapter", "/concept"]}>
         {signedIn ? (
           <>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route path="/dashboard">
               <Dashboard />
             </Route>

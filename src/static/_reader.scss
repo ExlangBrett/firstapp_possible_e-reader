@@ -1,0 +1,40 @@
+.reader {
+    width: 100vw;
+    height: 100vh;
+
+    .arrow {
+        position: absolute;
+        font-size: 4rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .left {
+        top: 50vh;
+        left: 1vw;
+    }
+
+    .right {
+        top: 50vh;
+        right: 1vw;
+    }
+}
+
+.highlighted {
+    position: absolute;
+    top: 5vh;
+    width: 100vw;
+    z-index: 2;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+
+    div {
+        padding: 1rem 1.5rem;
+        background-color: grey;
+        border-radius: 25px;
+        color: white;
+    }
+}

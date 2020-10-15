@@ -943,4 +943,49 @@ body {
 .chapter .chapter-content .submit-button .not-active {
   background-color: #dfdfdf;
 }
+
+.reader {
+  width: 100vw;
+  height: 100vh;
+}
+
+.reader .arrow {
+  position: absolute;
+  font-size: 4rem;
+}
+
+.reader .arrow:hover {
+  cursor: pointer;
+}
+
+.reader .left {
+  top: 50vh;
+  left: 1vw;
+}
+
+.reader .right {
+  top: 50vh;
+  right: 1vw;
+}
+
+.highlighted {
+  position: absolute;
+  top: 5vh;
+  width: 100vw;
+  z-index: 2;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.highlighted div {
+  padding: 1rem 1.5rem;
+  background-color: grey;
+  border-radius: 25px;
+  color: white;
+}
 /*# sourceMappingURL=main.css.map */

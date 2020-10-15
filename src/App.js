@@ -24,6 +24,7 @@ import LearningContextProvider, {
 } from "./contexts/learningContext";
 import Loading from "./components/loading";
 import Home from "./components/home/home";
+import Reader from "./components/reader/reader";
 
 const history = createBrowserHistory({ forceRefresh: true });
 
@@ -48,13 +49,13 @@ const Paths = () => {
       <Route path={["/sign-in", "/sign-up"]}>
         <AuthBase />
       </Route>
+      <Route exact path={"/"}>
+        <Home />
+      </Route>
       {/* <Redirect exact from="/" to="/dashboard" /> */}
-      <Route path={["/", "/dashboard", "/chapter", "/concept"]}>
+      <Route path={["/dashboard", "/chapter", "/concept"]}>
         {signedIn ? (
           <>
-            <Route exact path="/">
-              <Home />
-            </Route>
             <Route path="/dashboard">
               <Dashboard />
             </Route>

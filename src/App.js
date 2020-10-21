@@ -53,10 +53,13 @@ const Paths = () => {
         <Home />
       </Route>
       {/* <Redirect exact from="/" to="/dashboard" /> */}
-      <Route path={["/dashboard", "/chapter", "/concept"]}>
+      <Route path={["/dashboard", "/chapter", "/concept", "/read"]}>
         {signedIn ? (
           <>
-            <Route path="/dashboard">
+            <Route path="/read">
+              <Reader />
+            </Route>
+            <Route path="/learn">
               <Dashboard />
             </Route>
             <Route path="/chapter/:chapterId">

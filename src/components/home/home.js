@@ -1,40 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { ReactReader } from "react-reader";
-
-let book = {};
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  Link,
+  useHistory,
+} from "react-router-dom";
+import Reader from "../reader/reader";
 
 const Home = () => {
-  const [highlighted, setHighlighted] = useState("");
+  const [height, setHeight] = useState(window.innerHeight);
 
-  const handleSelected = (range) => {
-    book.getRange(range).then((r) => {
-      setHighlighted(r.toString());
-    });
-  };
+  useEffect(() => {
+    window.addEventListener("resize", () => setHeight(window.innerHeight));
+  });
 
   return (
-    <>
-      {highlighted ? (
-        <div className="highlighted">
-          <div>{highlighted}</div>
+    <div style={{ height: height + "px" }} className="home">
+      <div className="content">
+        <div>
+          <Link to="/read">Reader</Link>
         </div>
-      ) : null}
-      <div
-        id="book"
-        style={{ position: "relative", height: "100vh", width: "100vw" }}
-      >
-        {" "}
-        // * Container needs a height..
-        <ReactReader
-          url={require("../../static/epubs/alice.epub")}
-          title={"Alice in wonderland"}
-          location={"epubcfi(/6/2[cover]!/6)"}
-          // locationChanged={(epubcifi) => console.log(epubcifi)}
-          getRendition={(e) => (book = e.book)}
-          handleTextSelected={(e) => handleSelected(e)}
-        />
+        <div>
+          <Link to="/learn">Learn</Link>
+        </div>
+        <div>
+          <a href="https://store.exlanguage.com">Store</a>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -23,8 +23,11 @@ const Reader = () => {
       {showPopup ? (
         <div className="popup">
           <div className="popup-inner">
-            {highlighted.split(" ").map((w) => (
-              <div className="word-outer">
+            <div className="exit" onClick={() => setShowPopup(false)}>
+              x
+            </div>
+            {highlighted.split("").map((w, i) => (
+              <div className="word-outer" key={i}>
                 <div>{w}</div>
                 <div className="button">
                   <span>add</span>
@@ -36,16 +39,16 @@ const Reader = () => {
       ) : null}
 
       {highlighted && showPopup === false ? (
-        <div className="highlighted">
-          <div
-            onClick={() => {
-              setShowPopup(!showPopup);
-            }}
-          >
-            click to show words
-          </div>
+        <div
+          className="highlighted"
+          onClick={() => {
+            setShowPopup(!showPopup);
+          }}
+        >
+          click to show words
         </div>
       ) : null}
+
       <div
         id="book"
         style={{
@@ -71,6 +74,8 @@ const Reader = () => {
             };
           }}
           handleTextSelected={(e) => handleSelected(e)}
+          handleKeyPress={(e) => console.log(e)}
+          tocChanged={(e) => console.log(e)}
         />
       </div>
     </>

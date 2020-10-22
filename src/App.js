@@ -53,7 +53,7 @@ const Paths = () => {
         <Home />
       </Route>
       {/* <Redirect exact from="/" to="/dashboard" /> */}
-      <Route path={["/dashboard", "/chapter", "/concept", "/read"]}>
+      <Route path={["/dashboard", "/chapter", "/concept", "/read", "/learn"]}>
         {signedIn ? (
           <>
             <Route path="/read">
